@@ -3,8 +3,8 @@ const ayarlar = require("./src/config/bot.json")
 const Nicat = new Discord.Client({disableMentions: "everyone" })
 /*==Eventler==*/
 Nicat.on("ready", async () => {
-  client.user.setStatus("idle")
-  client.user.setActivity(ayarlar.durum, {type: "PLAYING"}) 
+  Nicat.user.setStatus("idle")
+  Nicat.user.setActivity(ayarlar.durum, {type: "PLAYING"}) 
   setTimeout(function(){
     console.log(`
     ▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -19,4 +19,23 @@ Nicat.on("ready", async () => {
  });
 Nicat.login(process.env.TOKEN) 
 /*==Site==*/
-require("./src/web/main.js") 
+//require("./src/web/main.js") 
+const express = require("express");
+
+const app = express();
+var bodyParser = require("body-parser");
+
+app.use(bodyParser.json());
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(express.static("public"));
+
+app.set('view engine', 'ejs');
+
+/*==Sayfa==*/
+app.get("/", (req , res) => {
+  res.render("index")
+  
+ });
+app.listen(8080)
