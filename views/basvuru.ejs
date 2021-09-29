@@ -4,10 +4,10 @@
 
     <meta property="og:site_name" content=">">
 
-  <meta property="og:title" content="">
+  <meta property="og:title" content="Company Website AntiCode🖤">
 
-  <meta property="og:description" content="Merhabalar Ben Nicat 15 Yaşım var Kodlamayla Ilgileniyorum. Bildiğim Kodlama Dilleri: [JavaScript] [Html, Css] [PHP] [NextJS] ">
-
+  <meta property="og:description" content="<%=aciklama%>" ><!--content="Merhabalar Ben Nicat 15 Yaşım var Kodlamayla Ilgileniyorum. Bildiğim Kodlama Dilleri: [JavaScript] [Html, Css] [PHP] [NextJS] ">
+-->
   <meta property="og:image" content="https://cdn.discordapp.com/avatars/852853360612605952/a_470d5b0b33c20288395dcabece817a75.gif?size=1024">
 
   <meta property="theme-color" content="black">
@@ -51,3 +51,88 @@
      
 
 </head>
+<!--
+Forms
+Examples of building forms with Tailwind CSS.
+
+Tailwind doesn't include purpose-built form control classes out of the box, but form controls are easy to style using existing utilities.
+
+Here are a few examples to help you get an idea of how to build components like this using Tailwind.
+
+Login Form
+Username
+Username
+Password
+******************
+Please choose a password.
+
+Sign In
+Forgot Password?
+©2020 Acme Corp. All rights reserved.
+-->
+<center>
+<div class="w-full max-w-xs">
+  <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+        Sunucu Ismi
+      </label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Sunucu Ismini Giriniz">
+         <p class="text-red-500 text-xs italic">Bu Alan Gereklidir! </p> 
+    </div>
+    <div class="mb-6">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+        Sunucu ID
+      </label>
+      <input class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************">
+      <p class="text-red-500 text-xs italic">Bu Alan Gereklidir! </p>
+    </div>
+    <div class="mb-6">
+    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
+
+        Üye Sayı
+
+      </label>
+
+      <div class="relative">
+
+        <select id="language " class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+
+          <option>300-500</option>
+
+          <option>500-700</option>
+
+          <option>700-1000</option>
+          
+          <option>1000+</option> 
+        </select>
+
+        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+
+          <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+
+        </div>
+
+      </div>
+
+    </div>
+    </div>
+    <div class="flex items-center justify-between">
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+        <i class="fad fa-paper-plane"></i> Gönder
+      </button>
+      </form>
+    </div>
+  </center>
+  <script>
+  var select = document.getElementById('language');
+
+var value = select.options[select.selectedIndex].value;
+
+console.log(value); 
+  </script>
+
+
+

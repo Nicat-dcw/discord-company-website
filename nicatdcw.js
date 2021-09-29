@@ -40,4 +40,8 @@ app.get("/", (req , res) => {
   res.render("index",{aciklama})
   
  });
+app.get("/basvuru", (req, res) => {
+    var aciklama = ayarlar.aciklama; 
+  res.render("basvuru", {aciklama})
+ });
 app.listen(8080)
