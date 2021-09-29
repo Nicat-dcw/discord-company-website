@@ -35,7 +35,9 @@ app.set('view engine', 'ejs');
 
 /*==Sayfa==*/
 app.get("/", (req , res) => {
-  res.render("index")
+  //var isim = Nicat.user.username;
+  var aciklama = ayarlar.aciklama;
+  res.render("index",{aciklama})
   
  });
 app.listen(8080)
