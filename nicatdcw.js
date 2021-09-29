@@ -44,4 +44,7 @@ app.get("/basvuru", (req, res) => {
     var aciklama = ayarlar.aciklama; 
   res.render("basvuru", {aciklama})
  });
+app.post("/basvuru",(req, res) => {
+  console.log("31")
+ });
 app.listen(8080)
