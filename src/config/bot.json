@@ -3,5 +3,8 @@
   "aciklama":"Aciklama", 
   "logkanal":"log kanal id", 
   "authsecret":"c6u6JB3foaQ9QVAn5i4lebmWGK-S_T8i", 
-  "sahipler": "sahipid" 
+  "sahipler": "sahipid", 
+  "sunucuid":"Sunucunuzun IDSI", 
+  "sunucusahipleri":"Sunucu Sahiplerinin Rolunun IDSI" 
+  
  } 
