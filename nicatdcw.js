@@ -1,7 +1,8 @@
 const Discord = require("discord.js") 
 const ayarlar = require("./src/config/bot.json") 
 const passport = require("passport");
-
+const resydb = require("resydb") 
+const db = new resydb("./anticode.json")
 const session = require("express-session");
 const url = require("url") 
 const LevelStore = require("level-session-store")(session);
