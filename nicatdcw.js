@@ -154,7 +154,7 @@ app.get("/giris", (req, res, next) => {
 app.get("/", (req , res) => {
   //var isim = Nicat.user.username;
   var aciklama = ayarlar.aciklama;
-  res.render("index",{aciklama})
+  res.render("index",{aciklama,user:req.user})
   
  });
 app.get("/basvuru", girisCheck, (req, res) => {
