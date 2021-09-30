@@ -161,6 +161,15 @@ app.get("/basvuru", girisCheck, (req, res) => {
     var aciklama = ayarlar.aciklama; 
   res.render("basvuru", {aciklama})
  });
+app.get("/company",girisCheck, (req, res) => {
+     const guild = Nicat.guilds.cache.get(ayarlar.sunucuid);
+
+  
+  const sunucusahipleri = guild.members.cache.filter(x => x.roles.cache.has(ayarlar.sunucusahipleri)) //&& !owners.find(b => x.user.id == b) && !admins.find(b => x.user.id == b));
+res.render("company",{})
+ 
+});
+        
 app.post("/basvuru",(req, res) => {
   let sisim = req.body.sisim;
   let sid = req.body.sid;
