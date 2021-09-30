@@ -122,11 +122,11 @@ app.get("/giris", (req, res, next) => {
   });
   
   app.get("/callback", passport.authenticate("discord", { failureRedirect: "/autherror" }), async (req, res) => {
-    if (Nicat.ayarlar.sahipler.includes(req.user.id)) {
+   /* if (Nicat.ayarlar.sahipler.includes(req.user.id)) {
       req.session.isAdmin = true;
     } else {
       req.session.isAdmin = false;
-    }
+    }*/
     if (req.session.backURL) {
       const url = req.session.backURL;
       req.session.backURL = null;

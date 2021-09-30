@@ -1,5 +1,7 @@
 {
   "durum":"Companydeki Sunucuları | By Nicat Dcw", 
   "aciklama":"Aciklama", 
-  "logkanal":"log kanal id" 
+  "logkanal":"log kanal id", 
+  "authsecret":"c6u6JB3foaQ9QVAn5i4lebmWGK-S_T8i", 
+  "sahipler": "sahipid" 
  } 
