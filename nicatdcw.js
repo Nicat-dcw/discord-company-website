@@ -3,7 +3,7 @@ const ayarlar = require("./src/config/bot.json")
 const passport = require("passport");
 
 const session = require("express-session");
-
+const url = require("url") 
 const LevelStore = require("level-session-store")(session);
 
 const Strategy = require("passport-discord").Strategy;
@@ -41,13 +41,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.set('view engine', 'ejs');
-const bilgiler = {
+const bilgi = {
 
     oauthSecret: "vBZnwpizI1EagY3Rxowd9s84IXFFQvoH",
 
-    callbackURL: `https://dash.vortexbot.org/callback`,
+    callbackURL: `https://dot-sunny-airplane.glitch.me/callback`,
 
-    domain: `https://dash.vortexbot.org/`
+    domain: `https://dot-sunny-airplane.glitch.me`
 
   };
 passport.serializeUser((user, done) => {
@@ -58,9 +58,9 @@ passport.serializeUser((user, done) => {
   });
 
   passport.use(new Strategy({
-    clientID: Nicat.user.id,
-    clientSecret: bilgiler.oauthSecret,
-    callbackURL: bilgiler.callbackURL,
+    clientID: "874749209784500294",
+    clientSecret: ayarlar.authsecret,
+    callbackURL: bilgi.callbackURL,
     scope: ["identify", "guilds" , "email"]
   },
   (accessToken, refreshToken, profile, done) => {
@@ -75,15 +75,89 @@ passport.serializeUser((user, done) => {
 
   app.use(passport.initialize());
   app.use(passport.session());
+ function girisCheck(req, res, next) {
 
+    if (req.isAuthenticated()) return next();
+
+    req.session.backURL = req.url;
+
+    res.redirect("/giris");
+
+  }
 /*==Sayfa==*/
+app.get("/giris", (req, res, next) => {
+    if (req.session.backURL) {
+      req.session.backURL = req.session.backURL;
+    } else if (req.headers.referer) {
+      const parsed = url.parse(req.headers.referer);
+      if (parsed.hostname === app.locals.domain) {
+        req.session.backURL = parsed.path;
+      }
+    } else {
+      req.session.backURL = "";
+    }
+    next();
+    
+
+  },
+  passport.authenticate("discord"));
+
+  app.get("/giris", (req, res, next) => {
+    if (req.session.backURL) {
+      req.session.backURL = req.session.backURL;
+    } else if (req.headers.referer) {
+      const parsed = url.parse(req.headers.referer);
+      if (parsed.hostname === app.locals.domain) {
+        req.session.backURL = parsed.path;
+      }
+    } else {
+      req.session.backURL = "/en";
+    }
+    next();
+  },
+  passport.authenticate("discord"));
+  
+  app.get("/autherror", (req, res) => {
+    res.json({"hata":"Bir hata sonucunda Discord'da bağlanamadım! Lütfen tekrar deneyiniz."})
+  });
+  
+  app.get("/callback", passport.authenticate("discord", { failureRedirect: "/autherror" }), async (req, res) => {
+    if (Nicat.ayarlar.sahipler.includes(req.user.id)) {
+      req.session.isAdmin = true;
+    } else {
+      req.session.isAdmin = false;
+    }
+    if (req.session.backURL) {
+      const url = req.session.backURL;
+      req.session.backURL = null;
+      res.redirect(url);
+
+    } else {
+      res.redirect(`/`);
+    }
+    
+    
+
+  });
+  
+
+  app.get("/cikis", function(req, res) {
+    req.session.destroy(() => {
+      req.logout();
+      res.redirect("/");
+      
+    });
+
+    
+  });
+  
 app.get("/", (req , res) => {
   //var isim = Nicat.user.username;
   var aciklama = ayarlar.aciklama;
   res.render("index",{aciklama})
   
  });
-app.get("/basvuru", (req, res) => {
+app.get("/basvuru", girisCheck, (req, res) => {
     var aciklama = ayarlar.aciklama; 
   res.render("basvuru", {aciklama})
  });
