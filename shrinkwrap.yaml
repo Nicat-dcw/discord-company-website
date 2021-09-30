@@ -3,6 +3,7 @@ dependencies:
   ejs: 3.1.6
   express: 4.17.1
   path: 0.12.7
+  resydb: 1.0.7
 packages:
   /@discordjs/collection/0.1.6:
     dev: false
@@ -293,6 +294,10 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha1-PYyt2Q2XZWn6g1qx+OSyOhBWBac=
+  /fs/0.0.2:
+    dev: false
+    resolution:
+      integrity: sha1-4fJE7zkzwbKmS9R5kTYGDQ9ZFPg=
   /has-flag/3.0.0:
     dev: false
     engines:
@@ -506,6 +511,15 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha512-4Oz8DUIwdvoa5qMJelxipzi/iJIi40O5cGV1wNYp5hvZP8ZN0T+jiNkL0QepXs+EsQ9XJ8ipEDoiH70ySUJP3Q==
+  /resydb/1.0.7:
+    dependencies:
+      express: 4.17.1
+      fs: 0.0.2
+    dev: false
+    engines:
+      node: 12.x
+    resolution:
+      integrity: sha512-SBiKi+72nwxMfMRy3uRpOyT+FH4l8wpa3Z7VGCstula9O3f/w5jcV98TyCamPzFtpSIONXmNRMJhlAOczVUg7A==
   /safe-buffer/5.1.2:
     dev: false
     resolution:
@@ -642,3 +656,4 @@ specifiers:
   ejs: ^3.1.6
   express: ^4.17.1
   path: ^0.12.7
+  resydb: ^1.0.7

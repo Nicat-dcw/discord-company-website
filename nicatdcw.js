@@ -45,6 +45,19 @@ app.get("/basvuru", (req, res) => {
   res.render("basvuru", {aciklama})
  });
 app.post("/basvuru",(req, res) => {
-  console.log("31")
- });
+  let sisim = req.body.sisim;
+  let sid = req.body.sid;
+  let ksayi = req.body.ksayi;
+  Nicat.channels.cache.get(ayarlar.logkanal).send(`
+==Sunucu Başvurusu ✔==
+Sunucu Ismi ❯ **${sisim}**
+Sunucu ID ❯ \`${sid}\`
+Üye Sayısı ❯ **${ksayi}**
+▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+Başvuran » 
+
+  `)
+  res.redirect("/basvuran") 
+ 
+  });
 app.listen(8080)

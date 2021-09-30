@@ -72,19 +72,19 @@ Forgot Password?
 -->
 <center>
 <div class="w-full max-w-xs">
-  <form method="POST" action="/basvuru" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+  <form method="POST" action="/basvuru-alindi" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
     <div class="mb-4">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
         Sunucu Ismi
       </label>
-      <input name="sisim" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Sunucu Ismini Giriniz">
+      <input name="sisim" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Sunucu Ismini Giriniz" required>
          <p class="text-red-500 text-xs italic">Bu Alan Gereklidir! </p> 
     </div>
     <div class="mb-6">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
         Sunucu ID
       </label>
-      <input name="sid" class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="number" type="password" placeholder="Sunucunuzun IDsini Giriniz. ">
+      <input name="sid" class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="number" type="password" placeholder="Sunucunuzun IDsini Giriniz. " required>
       <p class="text-red-500 text-xs italic">Bu Alan Gereklidir! </p>
     </div>
     <div class="mb-6">
@@ -116,7 +116,7 @@ Forgot Password?
         </div>
 
       </div>-->
-      <input name="ksayi" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Üye Sayını Giriniz! ">
+      <input name="ksayi" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Üye Sayını Giriniz! " required>
   
 
     </div>
